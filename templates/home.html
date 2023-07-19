@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<body style="background-color: lightcyan;">
+<h1 style="text-align: center;text-transform: capitalize;text-decoration:underline;">Welcome to our Bank Website</h1>
+<div style="display: flex; align-items: center;">
+<img src="{% static 'images/bank_home.jpg' %}" alt="Bank Image">
+<div style="padding-left: 20px;">
+    <p style="text-align: left; font-family:'Times New Roman';font-size:large;">Online banking allows you to conduct financial transactions via the Internet. Online banking is also known as Internet banking or web banking.With online banking, you aren't required to visit a bank branch to complete most of your basic banking transactions. You can do all of this at your own convenience, wherever you want—at home, at work, or on the go. Online banking can be done using a browser or app. Mobile banking is online banking that is done on a phone or tablet.Using online banking requires a computer, tablet, mobile phone, or other device, plus an Internet connection and a bank or debit card. In order to access the service, you need to register for the bank's online banking service and create a password. Once that's done, you can use the service to do your banking.</p>
+    <button style="background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;"><a href="{% url 'bankapp:login' %}">Login Here</a></button>
+  </div>
+</div>
+{% endblock %}

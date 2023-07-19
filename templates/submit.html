@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Application Submitted{% endblock %}
+
+{% block content %}
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; background-color: rgb(216, 191, 121);">
+    <h2 style="text-align: center; font-style: italic;">Application Submitted</h2>
+    <p style="text-align: center;">{{ message }}</p>
+    <p style="text-align: center;">
+      <a href="{% url 'bankapp:home' %}">Return to Home</a>
+    </p>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

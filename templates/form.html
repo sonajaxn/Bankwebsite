@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<body style="background-color: #cee6e2;">
+  <div class="container mt-5" style="text-align:center;">
+    <h2 class="mb-4" style="text-decoration:underline;font-style: oblique;">Please fill the form.</h2>
+    <form method="post" action="{% url 'bankapp:submit' %}" style="text-align:left;">
+      {% csrf_token %}
+      <div class="form-group" style="text-align: left;">
+        <label for="id_name">Name:</label>
+        <input type="text" name="name" id="id_name"  placeholder="Enter your name" required>
+      </div>
+      <div class="form-group"style="text-align: left;>
+        <label for="id_dob">Date of Birth:</label>
+        <input type="date" name="dob" id="id_dob"  placeholder="YYYY-MM-DD" required>
+      </div>
+      <div class="form-group"style="text-align: left;>
+        <label for="id_age">Age:</label>
+        <input type="number" name="age" id="id_age"  placeholder="Enter your age" required>
+      </div>
+      <div class="form-group" >
+        <label>Gender:</label>
+        <div class="form-check">
+          <input type="radio" name="gender" id="id_gender_male" class="form-check-input" value="M" required>
+          <label for="id_gender_male" class="form-check-label">Male</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="gender" id="id_gender_female" class="form-check-input" value="F" required>
+          <label for="id_gender_female" class="form-check-label">Female</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="gender" id="id_gender_other" class="form-check-input" value="O" required>
+          <label for="id_gender_other" class="form-check-label">Other</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="id_phone_number">Phone Number:</label>
+        <input type="tel" name="phone_number"  placeholder="Enter your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="id_mail_id">Email:</label>
+        <input type="email" name="mail_id" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="id_address">Address:</label>
+        <textarea name="address" id="id_address" class="form-control" placeholder="Enter your address" rows="2" required></textarea>
+      </div>
+
+
+      <div class="form-group">
+        <label for="id_district">District:</label>
+        <select name="district" id="id_district" class="form-control" required>
+            <option value="" selected disabled>Choose a district</option>
+            <option value="Thrissur">Thrissur</option>
+            <option value="Ernakulam">Ernakulam</option>
+            <option value="Palakad">Palakad</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Waynad">Waynad</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="id_branch">Branch:</label>
+        
+         
+          <input type="text" name="branch" placeholder="Enter your branch" required>
+    </div>
+    
+
+    
+    
+
+
+
+
+
+
+      <!-- <div class="form-group">
+        <label for="id_district">District:</label>
+        <select name="district" id="id_district" class="form-control" required>
+          <option value="" selected disabled>Choose a district</option>
+          <option value="Thrissur">Thrissur</option>
+          <option value="Ernakulam">Ernakulam</option>
+          <option value="Palakad">Palakad</option>
+          <option value="Idukki">Idukki</option>
+          <option value="Waynad">Waynad</option>
+
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="id_branch">Branch:</label>
+        <select name="branch" id="id_branch" class="form-control" >
+          <option value="" disabled selected>Select Branch</option>
+          {% if form.selected_district == 'Ernakulam' %}
+            <option value="Aluva">Aluva</option>
+            <option value="Edapally">Edapally</option>
+            <option value="Sub Area 1">Sub Area 1</option>
+            <option value="Sub Area 2">Sub Area 2</option>
+          {% elif selected_district == 'Thrissur' %}
+            <option value="Sub Area 3">Sub Area 3</option>
+            <option value="Sub Area 4">Sub Area 4</option>
+            <option value="Sub Area 5">Sub Area 5</option>
+          {% endif %} -->
+          <!-- Add more branch options based on the selected district -->
+        <!-- </select>
+      </div> -->
+
+      
+        <label for="id_account_type">Account Type:</label>
+        <select name="account_type" id="id_account_type" class="form-control" required>
+          <option value="" disabled selected>Select Account Type</option>
+          <option value="Savings">Savings Account</option>
+          <option value="Current">Current Account</option>
+          <!-- Add more account type options as needed -->
+        </select>
+      
+      
+      <div class="form-group">
+        <label>Materials Provide:</label><br>
+        <div class="form-check">
+          <input type="checkbox" name="materials_provide" id="id_materials_debit" class="form-check-input" value="Debit Card">
+          <label for="id_materials_debit" class="form-check-label">Debit Card</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" name="materials_provide" id="id_materials_credit" class="form-check-input" value="Credit Card">
+          <label for="id_materials_credit" class="form-check-label">Credit Card</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" name="materials_provide" id="id_materials_cheque" class="form-check-input" value="Cheque Book">
+            <label for="id_materials_cheque" class="form-check-label">Cheque Book</label>
+          </div><br>
+        <div style="margin-bottom: 200px;">
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+</div>
+      </form>
+      <!-- <a href="{% url 'bankapp:home' %}" class="btn btn-secondary">Logout</a> -->
+    </body>
+    </div>
+  {% endblock %}
