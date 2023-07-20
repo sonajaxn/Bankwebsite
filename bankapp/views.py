@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login as userLogin,logout
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
+from bankapp.models import Branches,Districts
 
 
 
@@ -72,7 +73,12 @@ def submit(request):
 #     return render(request, 'form.html', {'selected_district': selected_district, 'branch_options': branch_options})
 
 def form(request):
-    return render(request, 'form.html')
+    # district=["tcr","ekm","kozhi","kzara"]
+    # branches=["a1","a2","a3","b1","b2","b3","c1","c2","c3"]
+    districts=Districts.objects.all()
+    branches=Branches.objects.all()
+
+    return render(request, 'form.html',{'Districts':districts,'Branches':branches})
 
 
 
