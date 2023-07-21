@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
+from django.contrib import messages,auth
 from django.contrib.auth import authenticate,login as userLogin,logout
 from django.contrib.auth.decorators import login_required
 from .forms import CreateUserForm
@@ -46,7 +46,7 @@ def registerPage(request):
     return render(request,'register.html',context)
 
 def logOutUser(request):
-    logout(request)
+    auth.logout(request)
     return redirect('/login')
 
 def entry(request):

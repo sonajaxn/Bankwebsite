@@ -61,9 +61,14 @@
     <nav>
         <ul>
             <li><a href="{% url 'bankapp:home' %}">Home</a></li>
-            <li><a href="{% url 'bankapp:login' %}">Login</a></li>
-
-
+            
+			{% if user.is_authenticated %}
+                <li style="font-size: large; font-style: italic;color: blue;text-decoration: underline;">hello {{user.username}}</li>
+                <li><a href="{% url 'bankapp:logout' %}">Log out</a></li>
+            {% else %}
+                <li><a href="{% url 'bankapp:register' %}">Register</a></li>
+                <li><a href="{% url 'bankapp:login' %}">Log in</a></li>
+                {%endif%}   
             <li>
                 <a href="#">Branches</a>
                 <ul>
@@ -73,9 +78,8 @@
                     <li><a href="https://en.wikipedia.org/wiki/Economy_of_Idukki">Idukki</a></li>
                     <li><a href="https://en.wikipedia.org/wiki/Economy_of_Waynad">Waynad</a></li>
 
-                </ul>
+
             </li>
-            <li><a href="{% url 'bankapp:register' %}">Register</a></li>
 
         </ul>
     </nav>
